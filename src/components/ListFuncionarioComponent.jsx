@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FuncionarioService from '../services/FuncionarioService';
 
 class ListFuncionarioComponent extends Component {
     constructor(props) {
@@ -7,6 +8,12 @@ class ListFuncionarioComponent extends Component {
         this.state = {
                 funcionarios: []
         }
+    }
+
+    componentDidMount() {
+        FuncionarioService.getFuncionarios().then((res) => {
+            this.setState({ funcionarios: res.data });
+        });
     }
 
     render() {

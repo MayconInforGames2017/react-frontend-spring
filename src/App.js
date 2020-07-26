@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import ListFuncionarioComponent from './components/ListFuncionarioComponent';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
@@ -8,11 +9,17 @@ import FooterComponent from './components/FooterComponent';
 function App() {
   return (
     <div>
-      <HeaderComponent />
-        <div className="container">
-          <ListFuncionarioComponent />
-        </div>
-      <FooterComponent />
+        <Router>
+              <HeaderComponent />
+                <div className="container">
+                    <Switch> 
+                          <Route path="/" component= { ListFuncionarioComponent }></Route>
+                          <Route path="/funcionarios" component= { ListFuncionarioComponent }></Route>
+                          <ListFuncionarioComponent />
+                    </Switch>
+                </div>
+              <FooterComponent />
+        </Router>
     </div>
     
   );

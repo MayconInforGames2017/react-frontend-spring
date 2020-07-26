@@ -8,6 +8,7 @@ class ListFuncionarioComponent extends Component {
         this.state = {
                 funcionarios: []
         }
+        this.addFuncionario = this.addFuncionario.bind(this);
     }
 
     componentDidMount() {
@@ -16,10 +17,17 @@ class ListFuncionarioComponent extends Component {
         });
     }
 
+    addFuncionario() {
+        this.props.history.push('/add-funcionario');
+    }
+
     render() {
         return (
             <div>
                 <h2 className="text-center">Lista de Funcionarios</h2>
+                <div className="row">
+                    <button className="btn btn-primary" onClick={this.addFuncionario}>Cadastrar Funcionario</button>
+                </div>
                 <div className="row">
                         <table className="table table-striped table-bordered">
 

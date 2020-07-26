@@ -1,13 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ListFuncionarioComponent from './components/ListFuncionarioComponent';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       <h1> Olá Mundo!</h1>
-      </header>
+    <div className="container">
+      <ListFuncionarioComponent />
     </div>
   );
 }

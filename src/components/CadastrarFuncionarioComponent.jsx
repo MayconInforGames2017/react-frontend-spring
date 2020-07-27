@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FuncionarioService from '../services/FuncionarioService';
 
 class CadastrarFuncionarioComponent extends Component {
     constructor(props) {
@@ -19,6 +20,10 @@ class CadastrarFuncionarioComponent extends Component {
         f.preventDefault();
         let funcionario = {primeiroNome: this.state.primeiroNome, segundoNome: this.state.segundoNome, emailId: this.state.emailId};
         console.log('funcionario => ' + JSON.stringify(funcionario));
+
+        FuncionarioService.salvarFuncionario(funcionario).then(res => {
+            this.props.history.push('/funcionarios');
+        });
     }
 
     changePrimeiroNomeHandler = (event) => {

@@ -8,6 +8,10 @@ class FuncionarioService {
         return axios.get(FUNCIONARIO_API_BASE_URL);
     }
 
+    salvarFuncionario(funcionario) {
+        return axios.post(FUNCIONARIO_API_BASE_URL, funcionario);
+    }
+
 }
 
 export default new FuncionarioService()

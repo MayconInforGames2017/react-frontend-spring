@@ -16,6 +16,10 @@ class FuncionarioService {
         return axios.get(FUNCIONARIO_API_BASE_URL + '/' + funcionarioId);
     }
 
+    atualizarFuncionario(funcionario, funcionarioId) {
+        return axios.put(FUNCIONARIO_API_BASE_URL + '/' + funcionarioId, funcionario);
+    }
+
 }
 
 export default new FuncionarioService()

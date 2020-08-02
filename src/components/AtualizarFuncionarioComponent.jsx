@@ -31,7 +31,9 @@ class AtualizarFuncionarioComponent extends Component {
         f.preventDefault();
         let funcionario = {primeiroNome: this.state.primeiroNome, segundoNome: this.state.segundoNome, emailId: this.state.emailId};
         console.log('funcionario => ' + JSON.stringify(funcionario));
-  
+        FuncionarioService.atualizarFuncionario(funcionario, this.state.id).then( res => {
+            this.props.history.push('/funcionarios');
+        } );
     }
 
     changePrimeiroNomeHandler = (event) => {

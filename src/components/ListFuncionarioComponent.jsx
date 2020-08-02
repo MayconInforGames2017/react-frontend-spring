@@ -9,6 +9,11 @@ class ListFuncionarioComponent extends Component {
                 funcionarios: []
         }
         this.addFuncionario = this.addFuncionario.bind(this);
+        this.editFuncionario = this.editFuncionario.bind(this);
+    }
+
+    editFuncionario(id) {
+        this.props.history.push(`/update-funcionario/${id}`);
     }
 
     componentDidMount() {
@@ -36,7 +41,7 @@ class ListFuncionarioComponent extends Component {
                                     <th>Primeiro nome</th>
                                     <th>Segundo nome</th>
                                     <th>E-mail</th>
-                                    <th>Ação</th>
+                                    <th>Opções</th>
                                 </tr>
 
                             </thead>
@@ -49,6 +54,9 @@ class ListFuncionarioComponent extends Component {
                                             <td> { funcionario.primeiroNome } </td>
                                             <td> { funcionario.segundoNome } </td>
                                             <td> { funcionario.emailId } </td>
+                                            <td>
+                                                <button onClick={ () => this.editFuncionario(funcionario.id)} className="btn btn-info">Atualizar</button>
+                                            </td>
 
                                         </tr>
                                     )

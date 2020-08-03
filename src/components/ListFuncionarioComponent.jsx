@@ -10,6 +10,13 @@ class ListFuncionarioComponent extends Component {
         }
         this.addFuncionario = this.addFuncionario.bind(this);
         this.editFuncionario = this.editFuncionario.bind(this);
+        this.deleteFuncionario = this.deleteFuncionario.bind(this);
+    }
+
+    deleteFuncionario(id) {
+        FuncionarioService.deleteFuncionario(id).then( res => {
+            this.setState({funcionarios: this.state.funcionarios.filter(funcionario => funcionario.id !== id)});
+        });
     }
 
     editFuncionario(id) {
@@ -56,6 +63,7 @@ class ListFuncionarioComponent extends Component {
                                             <td> { funcionario.emailId } </td>
                                             <td>
                                                 <button onClick={ () => this.editFuncionario(funcionario.id)} className="btn btn-info">Atualizar</button>
+                                                <button style={{marginLeft: "10px"}} onClick={ () => this.deleteFuncionario(funcionario.id)} className="btn btn-danger">Excluir</button>
                                             </td>
 
                                         </tr>

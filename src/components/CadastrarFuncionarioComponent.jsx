@@ -16,6 +16,16 @@ class CadastrarFuncionarioComponent extends Component {
         this.cadastrarFuncionario = this.cadastrarFuncionario.bind(this);
     }
 
+    componentDidMount() {
+        FuncionarioService.getFuncionarioById(this.state.id).then( (res) =>{
+            let funcionario = res.data;
+            this.setState({primeiroNome: funcionario.primeiroNome,
+                segundoNome: funcionario.segundoNome,
+                emailId: funcionario.emailId
+            });
+        });
+    }
+
     cadastrarFuncionario = (f) => {
         f.preventDefault();
         let funcionario = {primeiroNome: this.state.primeiroNome, segundoNome: this.state.segundoNome, emailId: this.state.emailId};

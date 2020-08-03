@@ -20,6 +20,10 @@ class FuncionarioService {
         return axios.put(FUNCIONARIO_API_BASE_URL + '/' + funcionarioId, funcionario);
     }
 
+    deleteFuncionario(funcionarioId) {
+        return axios.delete(FUNCIONARIO_API_BASE_URL + '/' + funcionarioId);
+    }
+
 }
 
 export default new FuncionarioService()

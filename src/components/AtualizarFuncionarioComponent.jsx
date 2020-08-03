@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FuncionarioService from '../services/FuncionarioService';
 
-class AtualizarFuncionarioComponent extends Component {   
+class AtualizarFuncionarioComponent extends Component {
     constructor(props) {
         super(props)
 
